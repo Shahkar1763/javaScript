@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        h1{
+            text-align: center;
+            padding: 20px 0px;
+        }
+
+        .faqs{
+           width: 1000px;
+            margin: auto;
+            
+        }
+
+        .faqitem{
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+           .faqitem h3{
+            background-color: aqua;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: 800;
+            position: relative;
+           }
+
+           .faqitem h3 span{
+            position: absolute;
+            right: 10px;
+            font-size: x-large;
+            font-weight: 900;
+           }
+         .faqitem .ans {
+           padding: 10px;
+           display: none;
+         }
+
+        .faqitem .ans.showAns{
+            display: block;
+         }
+
+    </style>
+</head>
+<body>
+    <h1>FAqs Quetion and Answer</h1>
+    <div class="faqs">
+    <div class="faqitem">
+       <h3>
+        What is React? <span>+</span>
+       </h3> 
+       <div class="ans">React is a JavaScript library used to build user interfaces.</div>
+    </div>
+
+     <div class="faqitem">
+       <h3>
+        What services do you provide, and how can your services help my business or personal project?<span>+</span>
+       </h3> 
+       <div class="ans">We provide professional services based on your requirements. Our goal is to deliver high-quality solutions that help improve your project, online presence, or business.</div>
+    </div>
+
+     <div class="faqitem">
+       <h3>
+        How long does it usually take to complete a project after all requirements have been discussed?<span>+</span>
+       </h3> 
+       <div class="ans">The project completion time depends on its size and complexity. Small projects may take a few days, while larger and more complex projects can take several weeks.</div>
+    </div>
+    </div>
+
+    <script>
+        let allFaqsQuestion = document.querySelectorAll(".faqitem h3")
+           allFaqsQuestion.forEach((item,index)=>{
+             item.addEventListener("click",()=>{
+
+                // allFaqsQuestion.forEach((q,i)=>{
+                //     if(i!=index){
+                //          q.lastElementChild.innerHTML = "+"
+                //           q.nextElementSibling.classList.remove("showAns")
+                    
+                //     }
+                //  })
+                    
+                
+
+                if(item.lastElementChild.innerHTML == "+"){
+                    item.lastElementChild.innerHTML = "-"
+                }
+                else{
+                    item.lastElementChild.innerHTML = "+"
+                }
+                 item.nextElementSibling.classList.toggle("showAns")
+             })
+           })
+    </script>
+</body>
+</html>

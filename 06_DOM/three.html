@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello my name is shahkar</h1>
+
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo eum ipsum ea molestiae ad doloremque assumenda magnam ullam. Est, quisquam! Laboriosam rerum ea iusto consequuntur, molestias maiores. Illum, nisi itaque!</p>
+
+    <button>click</button>
+</body>
+<script>
+    let headingElement = document.querySelector("h1")
+    let paraElement = document.querySelector("p")
+
+    let btn = document.querySelector("button")
+
+     headingElement.style.color="blue"
+        paraElement.style.color="red"
+
+    btn.addEventListener("click",()=>{
+        
+        headingElement.style.color="red"
+        paraElement.style.color="blue"
+
+
+        headingElementData=headingElement.innerHTML
+        paraElementData = paraElement.innerHTML
+
+        paraElement.innerHTML=headingElementData
+     headingElement.innerHTML=paraElementData    
+        
+    })
+</script>
+</html>

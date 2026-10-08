@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="mode">change Mode</button>
+</body>
+<script>
+    const button = document.querySelector("#mode")
+    const body = document.querySelector("body")
+
+    let currentmode = "light"
+
+    button.addEventListener("click",()=>{
+    if(currentmode === "light"){
+       currentmode = "dark"
+        body.style.backgroundColor = "black"
+    }
+    else{
+        currentmode = "light"
+        body.style.backgroundColor = "white"
+    }
+
+    })
+</script>
+</html>

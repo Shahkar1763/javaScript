@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>chai our code</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    
+</body>
+<script>
+        // const changeText = function () {
+        //      document.querySelector("h1").innerHTML = "js best Series"
+        // };
+
+        // changeText();
+
+        // const changeMe = setTimeout(changeText , 5000)
+
+    //    document.querySelector("#stop").addEventListener("click",function(){
+    //      clearTimeout(changeMe)
+    //      console.log("Stopped")
+    //    })
+
+    // setInterval(() => {
+    //     console.log("shahkar" ,new Date().toDateString())
+    // }, 1000);
+
+
+    let intervalId = null;
+
+    document.querySelector("#start").addEventListener("click", () => {
+
+        if (!intervalId) {
+            intervalId = setInterval(() => {
+                console.log("shahkar", new Date().toLocaleTimeString());
+            }, 1000);
+        }
+
+    });
+
+    document.querySelector("#stop").addEventListener("click", () => {
+        clearInterval(intervalId);
+        intervalId = null;
+    });
+
+    
+</script>
+</html>

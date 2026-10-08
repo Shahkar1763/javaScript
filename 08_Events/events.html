@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="250px" id="parking-solt"   src="Annotation 2026-05-18 214001.png"></li>
+            <li><img width="250px" id="person-pic" src="2.png"></li>
+            <li><img width="250px"  id="coding" src="Annotation 2026-05-20 102149.png"></li>
+            <li><img  width="250px" id="dashboard" src="Annotation 2026-05-21 111805.png"></li>
+            <li><a href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById("images").addEventListener("click" ,(e)=>{
+    //     console.log("You are inside the div")
+    // },false)
+    // document.getElementById("coding").addEventListener("click" ,(e)=>{
+    //     console.log("coding pic are clicked")
+    //     e.stopPropagation();
+    // },false)
+
+    document.getElementById("google").addEventListener("click" ,(e)=>{
+        console.log("google")
+        e.preventDefault();
+        alert("link disabled")
+    },false)
+
+    document.querySelector("#images").addEventListener("click", (e) => {
+                 console.log(e.target.tagName)
+
+                 if(e.target.tagName === "IMG"){
+                //   e.target.parentNode.remove()
+                  let removeIt = e.target.parentNode
+                removeIt.remove();
+                 }
+    
+    })
+    
+
+</script>
+</html>

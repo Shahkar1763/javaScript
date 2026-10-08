@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    .form-Section{
+        display: grid;
+        grid-template-columns: 25% auto;
+        gap:30px;
+        padding :20px
+    }
+    .form-Section form{
+        box-shadow: 0px 0px 10px 2px #ccc;
+        padding: 20px;
+    
+    }
+    h1{
+        text-align: center;
+        margin-bottom:20px;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    .form label{
+        display: block;
+       font-size: 16px;
+      
+    }
+    .form input{
+        width: 100%;
+        height: 30px;
+         margin-bottom: 10px;
+        
+    }
+    .form-Section form button{
+        background-color: blue;
+        border: none;
+        width: 100%;
+        padding: 10px 0px;
+        margin-top: 10px;
+        color: white;
+    }
+    table{
+        width: 100%;
+          border-collapse: collapse;
+    }
+    th,td{
+        text-align: left;
+        padding: 8px;
+    }
+    th{
+        background-color: #fcfcfc;
+    }
+     button{
+        background-color: red;
+        color:white;
+        padding:  5px 10px;
+        border: none;
+        cursor: pointer;
+    }
+    #error{
+        font-size: 20px;
+        margin-top: 5px;
+        color: red;
+        text-align: center;
+    }
+</style>
+<body>
+    <section class="form-Section">
+        <form>
+             <h1>Login Page</h1>
+             <div id="error"></div>
+             <div class="form">
+                <label>Name</label>
+                <input type="text" name="userName">
+             </div>
+             <div class="form">
+                <label>Email</label>
+                <input type="email" name="userEmail">
+             </div>
+             <div class="form">
+                <label>Contact</label>
+                <input type="text" name="userPhone">
+             </div>
+             <button>Save</button>
+        </form>
+        
+        <div>
+            <table border="1" cellspacing="0" cellpadding="10">
+                <thead>
+                  <tr>
+                    <th>S.No</th>
+                     <th>Name</th>
+                      <th>Email</th>
+                       <th>Contact</th>
+                       <th>
+                        Action
+                       </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+</body>
+<script>
+    let formElement = document.querySelector(".form-Section form")
+      let userData = []
+      let errorDiv = document.querySelector("#error")
+    formElement.addEventListener("submit",(event)=>{
+      
+
+      
+
+         let userName = event.target.userName.value;
+     let userEmail = event.target.userEmail.value;
+      let userPhone = event.target.userPhone.value;
+
+    //   console.log(userName,userEmail,userPhone)
+     let userobject={
+        userName,
+        userEmail,
+        userPhone
+     }
+
+    let checkEmail =  userData.find((item,index)=> item.userEmail === userEmail)
+    if(checkEmail){
+      errorDiv.innerHTML ="Email is already Exist";
+      setTimeout(()=>{
+            errorDiv.innerHTML= ``;
+      },2000)
+        
+    }
+    else{
+      
+        userData.push(userobject)
+          storeData()
+    }
+     
+
+      event.target.reset()
+        event.preventDefault();
+    })
+ 
+   let tboadyElement = document.querySelector("tbody")
+
+   let storeData=()=>{
+    let tableRow = ``;
+    userData.forEach((item,index)=>{
+          tableRow+=`  <tr>
+                        <td>${index+1}</td>
+                         <td>${item.userName} </td>
+                          <td>${item.userEmail}</td>
+                           <td>${item.userPhone}</td>
+                            <td>
+                                <button data-id="${index}">Delete</button>
+                            </td>
+                    </tr>`
+    })
+    tboadyElement.innerHTML=tableRow;
+   }
+  
+        tboadyElement.addEventListener("click",(e)=>{
+           
+            if(e.target.tagName === "BUTTON"){
+                 if(confirm("Are you want to sure  to Delete?")){
+
+                 }
+               let del = e.target.getAttribute("data-id")
+               userData.splice(del,1)
+               storeData()
+            }
+        })
+
+    // let body = document.querySelector("body")
+    // body.addEventListener("contextmenu",(e)=>{
+    //     //  e.preventDefault()
+    // })
+
+
+</script>
+</html>
